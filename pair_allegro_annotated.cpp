@@ -444,6 +444,9 @@ void PairAllegro::compute(int eflag, int vflag){
   // KS: Atomic position tensor, first dimension is the total number of atoms (real + ghost), second dimension is x, y, z coords
   torch::Tensor pos_tensor = torch::zeros({ntotal, 3});
   // KS: Edge tensor, nedges are the total number of ij pair bonds in the subdomain, type is Int64
+   // This is basically the neighbor list. In allegro Python, they used `ase.neighborlist.primitive_neighbor_list` function 
+   // to generate neighbor list, here, the implementation should give the same results of ase neighbor list function.
+   // The first row dimension i is sorted in ascending order, but second dimension j is not sorted.
   torch::Tensor edges_tensor = torch::zeros({2,nedges}, torch::TensorOptions().dtype(torch::kInt64));
   // KS: 
   torch::Tensor ij2type_tensor = torch::zeros({ntotal}, torch::TensorOptions().dtype(torch::kInt64));
