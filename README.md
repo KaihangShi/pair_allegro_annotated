@@ -1,4 +1,5 @@
 # `pair_allegro`: LAMMPS pair style for Allegro
+**Note: This repo was forked from the original pair_allegro repo, but here I added an annotated version of the `pair_allegro.cpp` file.** 
 
 This pair style allows you to use Allegro models from the [`allegro`](https://github.com/mir-group/allegro) package in LAMMPS simulations. Allegro is designed to enable parallelism, and so `pair_allegro` **supports MPI in LAMMPS**. It also supports OpenMP (better performance) or Kokkos (best performance) for accelerating the pair style.
 
